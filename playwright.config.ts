@@ -11,7 +11,15 @@ export default defineConfig({
     trace: 'on-first-retry',
     screenshot: 'on',
   },
-  projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],
+  projects: [{
+    name: 'chromium',
+    use: {
+      ...devices['Desktop Chrome'],
+      launchOptions: {
+        args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
+      },
+    },
+  }],
   webServer: {
     command: 'npm run dev',
     url: 'http://localhost:5173',
