@@ -60,13 +60,23 @@
   "suites": [],
   "errors": [
     {
-      "message": "Error: Timed out waiting 30000ms from config.webServer.",
-      "stack": "Error: Timed out waiting 30000ms from config.webServer."
+      "message": "Error: Playwright Test did not expect test.beforeEach() to be called here.\nMost common reasons include:\n- You are calling test.beforeEach() in a configuration file.\n- You are calling test.beforeEach() in a file that is imported by the configuration file.\n- You have two different versions of @playwright/test. This usually happens\n  when one of the dependencies in your package.json depends on @playwright/test.",
+      "stack": "Error: Playwright Test did not expect test.beforeEach() to be called here.\nMost common reasons include:\n- You are calling test.beforeEach() in a configuration file.\n- You are calling test.beforeEach() in a file that is imported by the configuration file.\n- You have two different versions of @playwright/test. This usually happens\n  when one of the dependencies in your package.json depends on @playwright/test.\n    at TestTypeImpl._currentSuite (/tmp/work/56924afd-564e-42db-9574-d664843619ba/node_modules/playwright/lib/common/testType.js:74:13)\n    at TestTypeImpl._hook (/tmp/work/56924afd-564e-42db-9574-d664843619ba/node_modules/playwright/lib/common/testType.js:159:24)\n    at Function.beforeEach (/tmp/work/56924afd-564e-42db-9574-d664843619ba/node_modules/playwright/lib/transform/transform.js:273:12)\n    at /tmp/work/56924afd-564e-42db-9574-d664843619ba/e2e/app.spec.ts:4:6",
+      "location": {
+        "file": "/tmp/work/56924afd-564e-42db-9574-d664843619ba/e2e/app.spec.ts",
+        "column": 6,
+        "line": 4
+      },
+      "snippet": "\u001b[90m   at \u001b[39mapp.spec.ts:4\n\n  2 | import { captureScreenshot, assertNoConsoleErrors } from './helpers'\n  3 |\n> 4 | test.beforeEach(async ({ page }) => {\n    |      ^\n  5 |   // Clear localStorage before each test for a clean state\n  6 |   await page.goto('/')\n  7 |   await page.evaluate(() => localStorage.clear())"
+    },
+    {
+      "message": "Error: No tests found",
+      "stack": "Error: No tests found"
     }
   ],
   "stats": {
-    "startTime": "2026-03-02T07:32:21.930Z",
-    "duration": 30039.663999999997,
+    "startTime": "2026-03-02T07:39:13.293Z",
+    "duration": 950.1769999999999,
     "expected": 0,
     "skipped": 0,
     "unexpected": 0,
